@@ -37,10 +37,12 @@ public class MainActivity extends AppCompatActivity {
 		int input = Integer.parseInt(angka);
 
 		if (input == number){
-			Toast.makeText(this,"Angka Terlalu Kecil", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this,"Angka Benar", Toast.LENGTH_SHORT).show();
 		}else if (input < number){
-			Toast.makeText(this,"Angka Terlalu Besar", Toast.LENGTH_SHORT).show();
-		}
+			Toast.makeText(this,"Angka Terlalu Kecil", Toast.LENGTH_SHORT).show();
+		}else if (input > number){
+		    Toast.makeText(this,"Angka Terlalu Besar", Toast.LENGTH_SHORT).show();
+        }
 	}
 
 	public void handleReset(View view) {
