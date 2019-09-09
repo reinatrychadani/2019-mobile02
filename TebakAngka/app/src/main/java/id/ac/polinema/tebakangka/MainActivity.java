@@ -13,24 +13,39 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
 	//  TODO: deklarasikan variabel di sini
+	private int number;
+	private EditText numberInput;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		// TODO: bind layout di sini
+		numberInput = findViewById(R.id.number_input);
 	}
 
 	// TODO: generate angka random di sini
 	private void initRandomNumber() {
-
+			Random rand = new Random();
+			int n = rand.nextInt(50);
+			number = n;
 	}
 
 	public void handleGuess(View view) {
 		// TODO: Tambahkan logika untuk melakukan pengecekan angka
+		String angka = numberInput.getText().toString();
+		int input = Integer.parseInt(angka);
+
+		if (input == number){
+			Toast.makeText(this,"Angka Terlalu Kecil", Toast.LENGTH_SHORT).show();
+		}else if (input < number){
+			Toast.makeText(this,"Angka Terlalu Besar", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	public void handleReset(View view) {
 		// TODO: Reset tampilan
+		numberInput.setText("");
+		initRandomNumber();
 	}
 }
